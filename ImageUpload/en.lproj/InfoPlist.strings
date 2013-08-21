@@ -1,2 +1,9 @@
 /* Localized versions of Info.plist keys */
 
+/*
+这是html表单
+<form action="up.do" id="form1" name="form1" encType="multipart/form-data" method="post">
+<input type="file" id="file" name="file" style="width:450">
+<input type="submit" value="上传文件">
+</form>
+*/

@@ -7,6 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import "LoginViewController.h"
+#import "CenterViewController.h"
+#import "MyNavigationController.h"
 
 @implementation AppDelegate
 
@@ -20,9 +23,61 @@
 {
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
+    self.window.backgroundColor = [UIColor blackColor];
     [self.window makeKeyAndVisible];
+    [self getLocationManager];
+    //初始化用户名和密码
+    [self setFirstlogintag];
+    //设置调用网络缓存
+    ASIDownloadCache *cache = [[ASIDownloadCache alloc] init];
+    self.myCache = cache;
+    [cache release];
+    //设置缓存路径
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentDirectory = [paths objectAtIndex:0];
+    [self.myCache setStoragePath:[documentDirectory stringByAppendingPathComponent:@"resource"]];
+    [self.myCache setDefaultCachePolicy:ASIOnlyLoadIfNotCachedCachePolicy];
+    
+    //获取登陆状态
+    BOOL logintag = [[NSUserDefaults standardUserDefaults] boolForKey:LOGINFLAG];
+    LoginViewController *login = [[LoginViewController alloc]init];
+    MyNavigationController *navigationController = [[MyNavigationController alloc] initWithRootViewController:login];
+    navigationController.recognizer_.enabled = NO;
+    [login release];
+    [self.window setRootViewController:navigationController];
+    [navigationController release];
+    
+    if (logintag) {
+        CenterViewController *center = [[CenterViewController alloc]init];
+        [navigationController pushViewController:center animated:NO];
+    }
+//    else{
+//        LoginViewController *login = [[LoginViewController alloc]init];
+//        mainViewController = login;
+//    }    
     return YES;
+}
+
+-(void)setFirstlogintag
+{
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:FIRSTLAUNCH]) {
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:FIRSTLAUNCH];
+        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:LOGINFLAG];
+        [[NSUserDefaults standardUserDefaults] setValue:@"" forKey:USERNAME];
+        [[NSUserDefaults standardUserDefaults] setValue:@"" forKey:PASSWORD];
+    }
+    else{
+        return;
+    }
+}
+
+- (void)getLocationManager
+{
+    CLLocationManager *locationManager = [[CLLocationManager alloc] init];//创建位置管理器
+    locationManager.delegate=self;//设置代理
+    locationManager.desiredAccuracy=kCLLocationAccuracyBest;//指定需要的精度级别
+    locationManager.distanceFilter=1000.0f;//设置距离筛选器
+    [locationManager startUpdatingLocation];//启动位置管理器
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
