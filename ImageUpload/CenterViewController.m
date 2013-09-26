@@ -175,7 +175,7 @@
 
 - (void)sendImageUpload
 {
-    if (imageview.image) {
+    if (!imageview.image) {
         //添加进度条
         progressview_ = [[MyProgressView alloc]init];
         progressview_.delegate = self;
@@ -185,6 +185,10 @@
         //调网络发送图片
         [netWork_ setDelegate:self];
         [netWork_ upLoadSalesBigImage:_imagePathString imageinfo:imageinfo];
+        //下载文件
+//        NSArray* paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+//        NSString* documentsDirectory = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"pptname.pdf"];
+//        [netWork_ downLoadFile:documentsDirectory];
     }
     else
     {

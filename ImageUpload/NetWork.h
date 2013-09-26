@@ -22,4 +22,5 @@
 - (void)stopHttpRequest;
 - (void)startHttpRequest:(NSMutableArray *)userInfoArray;
 - (void)upLoadSalesBigImage:(NSString *)imagepath imageinfo:(NSMutableArray *)imageinfoarray;
+- (void)downLoadFile:(NSString *)savepath;
 @end

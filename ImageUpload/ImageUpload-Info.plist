@@ -8,6 +8,8 @@
 	<string>图片上传</string>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
+	<key>CFBundleIconFile</key>
+	<string>icon.jpg</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.sinosoft.imageload</string>
 	<key>CFBundleInfoDictionaryVersion</key>
@@ -20,6 +22,19 @@
 	<string>1.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>wechat</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>wx89c908289ef0c09b</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
 	<key>LSRequiresIPhoneOS</key>

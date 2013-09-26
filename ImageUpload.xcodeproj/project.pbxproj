@@ -68,11 +68,13 @@
 		122281F917953D200016B692 /* NetWork.m in Sources */ = {isa = PBXBuildFile; fileRef = 122281F817953D200016B692 /* NetWork.m */; };
 		12757C4E179E2CDC00DC8A14 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12757C4D179E2CDC00DC8A14 /* ImageIO.framework */; };
 		12757C51179E2CE700DC8A14 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12757C50179E2CE700DC8A14 /* AssetsLibrary.framework */; };
+		1297905617EED74C0043D799 /* icon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1297905517EED74C0043D799 /* icon.jpg */; };
 		129AAEAA179D1F4800A6437B /* add@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 129AAEA8179D1F4800A6437B /* add@2x.png */; };
 		129AAEAB179D1F4800A6437B /* deleteBtn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 129AAEA9179D1F4800A6437B /* deleteBtn@2x.png */; };
 		129AAEBF179D24CE00A6437B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 129AAEBE179D24CE00A6437B /* QuartzCore.framework */; };
 		12B7D4201796814700FA7CEC /* CircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 12B7D41F1796814700FA7CEC /* CircularProgressView.m */; };
 		12B7D4231796830400FA7CEC /* MyProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 12B7D4221796830400FA7CEC /* MyProgressView.m */; };
+		12D11FD517F41DA800A96B0B /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 12D11FD217F41DA800A96B0B /* libWeChatSDK.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -180,6 +182,7 @@
 		122281F817953D200016B692 /* NetWork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetWork.m; sourceTree = "<group>"; };
 		12757C4D179E2CDC00DC8A14 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		12757C50179E2CE700DC8A14 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		1297905517EED74C0043D799 /* icon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = icon.jpg; sourceTree = "<group>"; };
 		129AAEA8179D1F4800A6437B /* add@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add@2x.png"; sourceTree = "<group>"; };
 		129AAEA9179D1F4800A6437B /* deleteBtn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "deleteBtn@2x.png"; sourceTree = "<group>"; };
 		129AAEBE179D24CE00A6437B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -187,6 +190,9 @@
 		12B7D41F1796814700FA7CEC /* CircularProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircularProgressView.m; sourceTree = "<group>"; };
 		12B7D4211796830400FA7CEC /* MyProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyProgressView.h; sourceTree = "<group>"; };
 		12B7D4221796830400FA7CEC /* MyProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyProgressView.m; sourceTree = "<group>"; };
+		12D11FD217F41DA800A96B0B /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
+		12D11FD317F41DA800A96B0B /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
+		12D11FD417F41DA800A96B0B /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +204,7 @@
 				12757C51179E2CE700DC8A14 /* AssetsLibrary.framework in Frameworks */,
 				12757C4E179E2CDC00DC8A14 /* ImageIO.framework in Frameworks */,
 				129AAEBF179D24CE00A6437B /* QuartzCore.framework in Frameworks */,
+				12D11FD517F41DA800A96B0B /* libWeChatSDK.a in Frameworks */,
 				121952531794DFD500062EBF /* libz.1.2.5.dylib in Frameworks */,
 				121952511794DFCE00062EBF /* CFNetwork.framework in Frameworks */,
 				1219524F1794DFCA00062EBF /* SystemConfiguration.framework in Frameworks */,
@@ -270,6 +277,7 @@
 		1222816517953BBE0016B692 /* ImageUpload */ = {
 			isa = PBXGroup;
 			children = (
+				12D11FD117F41D9700A96B0B /* WeChat */,
 				120A11571797DF9000FBE5DE /* SaveImage */,
 				122281F617953CF40016B692 /* NetWork */,
 				122281F517953CC40016B692 /* Main */,
@@ -382,6 +390,7 @@
 		122281BA17953BBE0016B692 /* UIImage */ = {
 			isa = PBXGroup;
 			children = (
+				1297905517EED74C0043D799 /* icon.jpg */,
 				129AAEA8179D1F4800A6437B /* add@2x.png */,
 				129AAEA9179D1F4800A6437B /* deleteBtn@2x.png */,
 				120F556E1796A33B0058A5C4 /* cancel_progress@2x.png */,
@@ -515,6 +524,16 @@
 			name = "进度条";
 			sourceTree = "<group>";
 		};
+		12D11FD117F41D9700A96B0B /* WeChat */ = {
+			isa = PBXGroup;
+			children = (
+				12D11FD217F41DA800A96B0B /* libWeChatSDK.a */,
+				12D11FD317F41DA800A96B0B /* WXApi.h */,
+				12D11FD417F41DA800A96B0B /* WXApiObject.h */,
+			);
+			name = WeChat;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -541,7 +560,7 @@
 		121952201794DF9400062EBF /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0460;
+				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = curry;
 			};
 			buildConfigurationList = 121952231794DF9400062EBF /* Build configuration list for PBXProject "ImageUpload" */;
@@ -583,6 +602,7 @@
 				129AAEAA179D1F4800A6437B /* add@2x.png in Resources */,
 				129AAEAB179D1F4800A6437B /* deleteBtn@2x.png in Resources */,
 				1221FCF2179FB33300A70548 /* SettingViewController.xib in Resources */,
+				1297905617EED74C0043D799 /* icon.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -656,8 +676,8 @@
 				CLANG_ENABLE_OBJC_ARC = NO;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: ç äº® (7MEP5D8XMN)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: ç äº® (7MEP5D8XMN)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: ç äº® (7MEP5D8XMN)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: ç äº® (7MEP5D8XMN)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -672,6 +692,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "${SDK_DIR}/usr/include/libxml2";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-lxml2";
 				PROVISIONING_PROFILE = "4FA8926B-9EF4-4DBA-A54F-57807DA498F3";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "4FA8926B-9EF4-4DBA-A54F-57807DA498F3";
@@ -688,8 +709,8 @@
 				CLANG_ENABLE_OBJC_ARC = NO;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: ç äº® (7MEP5D8XMN)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: ç äº® (7MEP5D8XMN)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: ç äº® (7MEP5D8XMN)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: ç äº® (7MEP5D8XMN)";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -715,6 +736,10 @@
 				HEADER_SEARCH_PATHS = "${SDK_DIR}/usr/include/libxml2";
 				INFOPLIST_FILE = "ImageUpload/ImageUpload-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/meoliver/Desktop/ImageUpload/ImageUpload,
+				);
 				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -730,6 +755,10 @@
 				HEADER_SEARCH_PATHS = "${SDK_DIR}/usr/include/libxml2";
 				INFOPLIST_FILE = "ImageUpload/ImageUpload-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/meoliver/Desktop/ImageUpload/ImageUpload,
+				);
 				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;

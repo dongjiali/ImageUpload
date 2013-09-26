@@ -113,6 +113,38 @@
     }
 }
 
+- (void)downLoadFile:(NSString *)savepath
+{
+    if (savepath.length >0 && savepath !=nil) {
+        NSURL *url = [NSURL URLWithString:@"http://192.168.51.107:8080/MyWeb/DownLoadFileServlet"];
+        self.asiFormDataRequest  = [ASIFormDataRequest requestWithURL:url];
+        self.asiFormDataRequest.useCookiePersistence = YES;
+        [self.asiFormDataRequest setDownloadDestinationPath :savepath];
+        [self.asiFormDataRequest buildRequestHeaders];
+        [self.asiFormDataRequest setRequestMethod:@"POST"];
+        [self.asiFormDataRequest buildPostBody];
+        [self.asiFormDataRequest setCompletionBlock:^{
+            NSString *responseString = [ self.asiFormDataRequest responseString ];
+            [_delegate resultDataToUI:@"下载成功"];
+            NSLog(@"%@",responseString);
+        }];
+        
+        [self.asiFormDataRequest setFailedBlock:^{
+            NSError*error =[self.asiFormDataRequest error];
+            if (error) {
+                NSLog(@"error = %@",error);
+            }
+            [[[[UIAlertView alloc] initWithTitle:@"提示信息:"
+                                         message:@"上传失败，请重新再试"
+                                        delegate:nil
+                               cancelButtonTitle:@"确定"
+                               otherButtonTitles:nil] autorelease] show];
+            [_delegate resultFailed];
+        }];
+        [ self.asiFormDataRequest startSynchronous ];
+    }
+}
+
 - (void)dealloc
 {
     [self.asiFormDataRequest clearDelegatesAndCancel];
