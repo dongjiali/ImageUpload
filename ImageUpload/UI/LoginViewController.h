@@ -10,5 +10,6 @@
 #import "NetWork.h"
 #import "MyProgressView.h"
 @interface LoginViewController : UIViewController<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate,NetWorkDelegate,ProgressDelegate>
-
+@property (nonatomic,retain)id delegate;
+- (id)init:(id)delegate;
 @end

@@ -10,8 +10,16 @@
 #import <CoreLocation/CoreLocation.h>
 #import "ASIDownloadCache.h"
 #import "MyNavigationController.h"
-@interface AppDelegate : UIResponder <UIApplicationDelegate,CLLocationManagerDelegate>
-
+#import "MyNavigationController.h"
+#import "WXApi.h"
+#import "RespForWeChatViewController.h"
+@interface AppDelegate : UIResponder <UIApplicationDelegate,CLLocationManagerDelegate,
+UIAlertViewDelegate, WXApiDelegate, RespForWeChatViewDelegate>
+{
+    enum WXScene _scene;
+    MyNavigationController *navigationController;
+}
+- (void)changeScene:(NSInteger)scene;
 @property (strong, nonatomic) UIWindow *window;
 @property (nonatomic,retain) ASIDownloadCache *myCache;
 @end

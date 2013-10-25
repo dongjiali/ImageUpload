@@ -10,6 +10,9 @@
 #import "NetWork.h"
 #import "MyProgressView.h"
 @interface CenterViewController : UIViewController<ProgressDelegate,NetWorkDelegate,UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
+
 @property (nonatomic, retain) UIImagePickerController *imagePicker;
 @property (nonatomic, retain) NSString *imagePathString;
+@property (nonatomic,retain)id delegate;
+- (id)init:(id)delegate;
 @end

@@ -27,6 +27,7 @@
 @end
 
 @implementation CenterViewController
+@synthesize delegate = _delegate;
 @synthesize imagePicker = _imagePicker;
 @synthesize imagePathString = _imagePathString;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -34,6 +35,16 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+    }
+    return self;
+}
+
+- (id)init:(id)delegate
+{
+    self = [super init];
+    if (self) {
+        // Custom initialization
+        self.delegate = delegate;
     }
     return self;
 }
@@ -224,7 +235,7 @@
 
 - (void)setting
 {
-    SettingViewController *setting = [[SettingViewController alloc]init];
+    SettingViewController *setting = [[SettingViewController alloc]init:self.delegate];
     [self.navigationController pushViewController:setting animated:YES];
     [setting release];
 }
@@ -249,6 +260,7 @@
         [progressview_ removeFromSuperview];
     }
     [sendheart release];
+    [_delegate release];
     [_imagePicker release];
     [_imagePathString release];
     [netWork_ release];

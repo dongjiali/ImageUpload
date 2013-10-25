@@ -15,6 +15,7 @@
 #import "CenterViewController.h"
 #import "SaveScaledImage.h"
 #import "SendHeartbeat.h"
+#import "TrainViewController.h"
 @interface LoginViewController ()
 {
     UITextField *usernameText_;
@@ -30,7 +31,7 @@
 @end
 
 @implementation LoginViewController
-
+@synthesize delegate = _delegate;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -40,6 +41,20 @@
     toolbarkey_ = [[KeyinputAccessoryView alloc]init];
     netWork_ = [[NetWork alloc]init];
     loginParaArray_ = [[NSMutableArray alloc]init];
+    }
+    return self;
+}
+
+- (id)init:(id)delegate
+{
+    self = [super init];
+    if (self) {
+        // Custom initialization
+        self.delegate = delegate;
+        [self.navigationItem setTitle:@"登  录"];
+        toolbarkey_ = [[KeyinputAccessoryView alloc]init];
+        netWork_ = [[NetWork alloc]init];
+        loginParaArray_ = [[NSMutableArray alloc]init];
     }
     return self;
 }
@@ -64,7 +79,7 @@
     [backImageView release];
         
     //tableview
-    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(10, 20, 300, 145) style:UITableViewStyleGrouped];
+    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(10, 20, 300, 300) style:UITableViewStyleGrouped];
     tableView.delegate = self;
     tableView.dataSource = self;
     tableView.separatorStyle = NO;
@@ -75,7 +90,7 @@
     [tableView release];
     
     UIButton *loginButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [loginButton setFrame:CGRectMake(20,190, 280,46)];
+    [loginButton setFrame:CGRectMake(20, 270, 280,46)];
     [loginButton setTitle:@"登 录" forState:UIControlStateNormal];
     loginButton.titleLabel.font = [UIFont boldSystemFontOfSize:17];
     [loginButton setBackgroundImage:ImageWithName(@"login_button_bac@2x") forState:UIControlStateNormal];
@@ -139,7 +154,9 @@
 
 - (void)forgetPasswordAction
 {
-
+    TrainViewController *train = [[TrainViewController alloc]init];
+    [self.navigationController pushViewController:train animated:YES];
+    [train release];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -265,6 +282,7 @@
     [codeButton_ setTitle:tempnumber_ forState:UIControlStateNormal];
 }
 
+
 //登陆事件
 - (void) loginAction
 {
@@ -273,25 +291,28 @@
     [UIView setAnimationDuration:0.3];
     self.view.frame = CGRectMake(0, 0, 320, 420);
     [UIView commitAnimations];
-    if (![self loginCheck])
-    {
-        return;
-    }
+//    if (![self loginCheck])
+//    {
+//        return;
+//    }
     
-    if ([self loginCheck] && [[codeText_.text uppercaseString] isEqualToString:tempnumber_])
+//    if ([self loginCheck] && [[codeText_.text uppercaseString] isEqualToString:tempnumber_])
+    if (!([self loginCheck] && [[codeText_.text uppercaseString] isEqualToString:tempnumber_]))
     {
-        //添加进度条
-        progressview_ = [[MyProgressView alloc]init];
-        progressview_.delegate = self;
-        [self.view addSubview:progressview_];
-        [progressview_ startLoading:@"登录中,请稍等..."];
-        [progressview_ release];
-        //调用网络
-        [loginParaArray_ removeAllObjects];
-        [loginParaArray_ addObject:usernameText_.text];
-        [loginParaArray_ addObject:passwordText_.text];
-        [netWork_ setDelegate:self];
-        [netWork_ startHttpRequest:loginParaArray_];
+//        //添加进度条
+//        progressview_ = [[MyProgressView alloc]init];
+//        progressview_.delegate = self;
+//        [self.view addSubview:progressview_];
+//        [progressview_ startLoading:@"登录中,请稍等..."];
+//        [progressview_ release];
+//        //调用网络
+//        [loginParaArray_ removeAllObjects];
+//        [loginParaArray_ addObject:usernameText_.text];
+//        [loginParaArray_ addObject:passwordText_.text];
+//        [netWork_ setDelegate:self];
+//        [netWork_ startHttpRequest:loginParaArray_];
+        CenterViewController *center = [[CenterViewController alloc]init:self.delegate];
+        [self.navigationController pushViewController:center animated:YES];
     }
     else
     {
@@ -384,6 +405,7 @@
         [progressview_ stopLoading];
         [progressview_ removeFromSuperview];
     }
+    [_delegate release];
     [netWork_ release];
     [toolbarkey_ release];
     [super dealloc];

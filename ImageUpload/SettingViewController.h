@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class AppDelegate;
 @interface SettingViewController : UIViewController
+@property (nonatomic,retain)id delegate;
 
+- (id)init:(id)delegate;
 @end
